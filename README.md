@@ -68,6 +68,17 @@ The script will
 
 ## Signal Model
 
+
+## System Overview
+
+<p align="center">
+  <img src="radar_SignalModel.png" alt="Single-RF-Chain Beam-Sweeping Radar Signal Model" width="900">
+</p>
+
+<p align="center">
+<b>Figure 1.</b> Single-RF-chain beam-sweeping radar architecture and signal model. The conventional array steering vector is replaced by the beam-steering response for joint angle-Doppler estimation using sequential analog receive beams.
+</p>
+
 The received signal for the *i*-th receive beam and *p*-th pulse is
 
 \[
