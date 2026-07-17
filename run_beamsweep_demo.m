@@ -5,6 +5,11 @@ clear;
 clc;
 close all;
 
+%% Create images folder if it doesn't exist
+if ~exist('images','dir')
+    mkdir('images');
+end
+
 params = default_parameters();
 
 [Y, Y_clean, beam_gain_true] = simulate_beam_sweep(params);
