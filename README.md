@@ -54,15 +54,6 @@ The script will
 
 ---
 
-## Example Results
-
-### Joint Angle-Doppler Surface
-
-![Joint Angle-Doppler Surface](images/angle_doppler_surface.png)
-
-### Joint Angle-Velocity Map
-
-![Joint Angle-Velocity Map](images/angle_velocity_map.png)
 
 
 
@@ -95,4 +86,16 @@ where
 - \(t_i=(i-1)PT_r\) is the start time of the \(i\)-th receive beam,
 - \(f_D\) is the Doppler frequency,
 - \(P\) is the number of pulses collected for each beam.
+
+
+## Example Results
+
+### Joint Angle-Doppler Surface
+
+![Joint Angle-Doppler Surface](images/angle_doppler_surface.png)
+
+### Joint Angle-Velocity Map
+
+![Joint Angle-Velocity Map](images/angle_velocity_map.png)
+
 
