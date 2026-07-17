@@ -1,28 +1,75 @@
-# Single-RF-Chain Beam-Sweeping Angle-Doppler Demo
+# Single-RF-Chain Beam-Sweeping Radar for Joint Angle-Doppler Estimation
 
-This MATLAB project simulates sequential analog receive-beam sweeping and performs a full joint angle-Doppler matched-filter search using the complete `Q x P` measurement matrix.
+This repository presents a MATLAB implementation of a **single-RF-chain beam-sweeping radar** for joint angle-Doppler estimation.
 
-## Run
+Unlike conventional  array processing, where target angle estimation is performed using the **array steering vector**, this implementation replaces the steering vector with the **beam-steering response** associated with sequential analog receive beams. The received beam-pulse measurements are then processed using a **joint angle-Doppler matched filter** that explicitly accounts for the sequential beam acquisition times, enabling coherent estimation of target angle and Doppler (or radial velocity).
 
-Open MATLAB in this folder and execute:
+---
+
+## Features
+
+- Single-RF-chain sequential analog receive beam sweeping.
+- Beam-steering response replaces the conventional array steering vector for angle estimation.
+- Full joint angle-Doppler matched filtering using the complete beam-pulse measurement matrix.
+- Explicit compensation for sequential beam acquisition time.
+- Multiple-target simulation with additive white Gaussian noise (AWGN).
+- Angle-Doppler and angle-velocity visualization.
+
+---
+
+## Repository Structure
+
+```
+single-rf-radar-beam-sweeping/
+│
+├── run_beamsweep_demo.m
+├── default_parameters.m
+├── simulate_beam_sweep.m
+├── ula_beamsteering_response.m
+├── joint_angle_doppler_match.m
+├── plot_joint_maps.m
+├── display_parameters.m
+├── README.md
+└── LICENSE
+```
+
+---
+
+## Running the Simulation
+
+Open MATLAB in the project folder and run
 
 ```matlab
 run_beamsweep_demo
 ```
 
-## Files
+The script will
 
-- `run_beamsweep_demo.m` — main driver.
-- `default_parameters.m` — radar, target, beam, and search settings.
-- `ula_beam_response.m` — normalized ULA beam response.
-- `simulate_beam_sweep.m` — measurement and noise generation.
-- `compute_doppler_fft.m` — coarse Doppler FFT for visualization.
-- `joint_angle_doppler_match.m` — full 2-D matched-filter estimator.
-- `plot_measured_beam_doppler.m` — measured beam-Doppler plot.
-- `plot_joint_maps.m` — angle-Doppler, angle-velocity, and 3-D plots.
-- `plot_beam_responses.m` — theoretical beam responses.
-- `display_parameters.m` — command-window summary.
+- Generate the beam-sweeping measurement matrix.
+- Simulate multiple moving targets.
+- Perform joint angle-Doppler matched filtering.
+- Display the estimated angle-velocity map.
+- Display the 3-D joint angle-Doppler search surface.
+- Print the simulation parameters in the MATLAB command window.
 
-## MATLAB compatibility
+---
 
-The code uses implicit array expansion and is intended for MATLAB R2016b or newer. It also uses `hann`, which is available with Signal Processing Toolbox in many MATLAB releases. If unavailable, replace it with `hanning` or a manually defined Hann window.
+## Signal Model
+
+The received signal for the *i*-th receive beam and *p*-th pulse is
+
+\[
+Y_i(p)=\sum_{\ell=1}^{L}
+\alpha_\ell
+f(\beta_i,\theta_\ell)
+e^{j2\pi f_{D,\ell}(t_i+pT_r)}
++n_i(p),
+\]
+
+where
+
+- \(f(\beta_i,\theta)\) is the **beam-steering response**, replacing the conventional array steering vector for angle estimation,
+- \(t_i=(i-1)PT_r\) is the start time of the \(i\)-th receive beam,
+- \(f_D\) is the Doppler frequency,
+- \(P\) is the number of pulses collected for each beam.
+
