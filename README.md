@@ -56,13 +56,15 @@ The script will
 
 ## Example Results
 
+### Joint Angle-Doppler Surface
+
+![Joint Angle-Doppler Surface](images/angle_doppler_surface.png)
+
 ### Joint Angle-Velocity Map
 
 ![Joint Angle-Velocity Map](images/angle_velocity_map.png)
 
-### Joint Angle-Doppler Surface
 
-![Joint Angle-Doppler Surface](images/angle_doppler_surface.png)
 
 ## Signal Model
 
