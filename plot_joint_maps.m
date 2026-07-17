@@ -1,0 +1,49 @@
+function plot_joint_maps(joint, params)
+%PLOT_JOINT_MAPS Plot angle-Doppler, angle-velocity, and 3-D search results.
+
+figure( ...
+    'Name','Joint angle-Doppler search surface', ...
+    'Color','w', ...
+    'Position',[250 100 1100 700]);
+
+[FD_mesh, theta_mesh] = meshgrid( ...
+    joint.fD_axis_Hz, joint.theta_axis_deg);
+surface(FD_mesh, theta_mesh, joint.power_dB, 'EdgeColor','none');
+xlabel('Doppler frequency, f_D (Hz)');
+ylabel('Target angle, \theta (degrees)');
+zlabel('Normalized objective (dB)');
+title({ ...
+    'Joint Angle-Doppler Matched-Filter Surface', ...
+    'Complete atom f(\beta_i,\theta)e^{j2\pi f_D(t_i+pT_r)}'});
+colorbar;
+colormap jet;
+clim([-30 0]);
+grid on;
+box on;
+view(45,35);
+
+figure( ...
+    'Name','Joint angle-velocity matched-filter map', ...
+    'Color','w', ...
+    'Position',[200 120 1000 650]);
+
+imagesc(joint.velocity_axis_mps, joint.theta_axis_deg, joint.power_dB);
+axis xy;
+xlabel('Radial velocity, v_r (m/s)');
+ylabel('Estimated target angle, \theta (degrees)');
+title({ ...
+    'True Joint Angle-Velocity Estimation', ...
+    'Full Q x P matched filter including sequential beam timing'});
+colorbar;
+colormap jet;
+clim([-15 0]);
+grid on;
+hold on;
+plot(params.velocity_true_mps, params.theta_true_deg, ...
+    'wx','MarkerSize',14,'LineWidth',3);
+plot(params.velocity_true_mps, params.theta_true_deg, ...
+    'rx','MarkerSize',10,'LineWidth',2);
+legend('True targets','Location','best');
+
+
+end
