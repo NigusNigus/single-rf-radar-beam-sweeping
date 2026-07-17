@@ -1,9 +1,14 @@
 function plot_joint_maps(joint, params)
 %PLOT_JOINT_MAPS Plot angle-Doppler surface and angle-velocity map.
 
-% Create the images folder if it does not exist
-if ~exist('images','dir')
-    mkdir('images');
+% Repository/project root
+project_folder = fileparts(mfilename('fullpath'));
+
+% Create images folder inside the repository
+images_folder = fullfile(project_folder, 'images');
+
+if ~exist(images_folder, 'dir')
+    mkdir(images_folder);
 end
 
 %% 1. Joint angle-Doppler surface
