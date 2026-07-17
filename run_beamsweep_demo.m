@@ -5,10 +5,7 @@ clear;
 clc;
 close all;
 
-%% Create images folder if it doesn't exist
-if ~exist('images','dir')
-    mkdir('images');
-end
+
 
 params = default_parameters();
 
