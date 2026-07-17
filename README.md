@@ -67,7 +67,7 @@ The script will
 </p>
 
 <p align="center">
-<b>Figure 1.</b> Single-RF-chain beam-sweeping radar architecture and signal model. The conventional array steering vector is replaced by the beam-steering response for joint angle-Doppler estimation using sequential analog receive beams.
+<b>Figure 1.</b> Single-RF-chain beam-sweeping radar architecture and signal model.
 </p>
 
 The received signal for the *i*-th receive beam and *p*-th pulse is
