@@ -54,6 +54,16 @@ The script will
 
 ---
 
+## Example Results
+
+### Joint Angle-Velocity Map
+
+![Joint Angle-Velocity Map](images/angle_velocity_map.png)
+
+### Joint Angle-Doppler Surface
+
+![Joint Angle-Doppler Surface](images/angle_doppler_surface.png)
+
 ## Signal Model
 
 The received signal for the *i*-th receive beam and *p*-th pulse is
